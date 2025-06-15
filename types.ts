@@ -108,7 +108,7 @@ export interface CosmicResponse<T> {
 }
 
 // Utility types for components
-export type OptionalMetadata<T> = Partial<T['metadata']>;
+export type OptionalMetadata<T extends CosmicObject> = Partial<T['metadata']>;
 export type CreateProjectData = Omit<Project, 'id' | 'created_at' | 'modified_at'>;
 
 // Type guards for runtime validation

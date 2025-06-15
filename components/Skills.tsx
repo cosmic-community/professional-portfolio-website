@@ -42,17 +42,20 @@ export default async function Skills() {
         </div>
 
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-          {categories.map((category, index) => (
-            <div
-              key={category}
-              className={`animate-slide-up animation-delay-${index * 200}`}
-            >
-              <SkillCategory
-                title={categoryLabels[category] || category}
-                skills={skillsGrouped[category]}
-              />
-            </div>
-          ))}
+          {categories.map((category, index) => {
+            const categorySkills = skillsGrouped[category] || [];
+            return (
+              <div
+                key={category}
+                className={`animate-slide-up animation-delay-${index * 200}`}
+              >
+                <SkillCategory
+                  title={categoryLabels[category] || category}
+                  skills={categorySkills}
+                />
+              </div>
+            );
+          })}
         </div>
       </div>
     </section>
