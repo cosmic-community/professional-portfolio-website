@@ -128,4 +128,3 @@ Set these in your hosting platform:
 - `COSMIC_BUCKET_SLUG`
 - `COSMIC_READ_KEY` 
 - `COSMIC_WRITE_KEY`
-<!-- README_END -->
