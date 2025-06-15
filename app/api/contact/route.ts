@@ -81,7 +81,7 @@ export async function POST(request: NextRequest): Promise<NextResponse<ContactAp
           </div>
         </div>
       `,
-      replyTo: email,
+      reply_to: email,
     });
 
     if (emailData.error) {

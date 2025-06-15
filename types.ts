@@ -94,6 +94,19 @@ export interface Testimonial extends CosmicObject {
   };
 }
 
+// Contact form types
+export interface ContactFormData {
+  name: string;
+  email: string;
+  message: string;
+}
+
+export interface ContactApiResponse {
+  success: boolean;
+  message: string;
+  error?: string;
+}
+
 // Type literals for select-dropdown values
 export type ProficiencyLevel = 'beginner' | 'intermediate' | 'advanced' | 'expert';
 export type SkillCategory = 'frontend' | 'backend' | 'database' | 'tools' | 'design';
