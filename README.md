@@ -1,4 +1,3 @@
-<!-- README_START -->
 # Professional Portfolio Website
 
 A modern, responsive portfolio website built with Next.js and powered by Cosmic CMS. This application showcases your professional work, skills, experience, and client testimonials in a clean, professional design.
