@@ -97,9 +97,9 @@ export default function Navigation({ portfolioPage }: NavigationProps) {
 
           {/* Download CV Button */}
           <div className="hidden md:flex items-center">
-            {metadata?.email && (
+            {portfolioPage.metadata?.email && (
               <a
-                href={`mailto:${metadata.email}`}
+                href={`mailto:${portfolioPage.metadata.email}`}
                 className="bg-blue-600 hover:bg-blue-700 text-white px-6 py-3 rounded-full font-medium transition-colors text-sm"
               >
                 Download CV
@@ -148,9 +148,9 @@ export default function Navigation({ portfolioPage }: NavigationProps) {
                   {item.label}
                 </button>
               ))}
-              {metadata?.email && (
+              {portfolioPage.metadata?.email && (
                 <a
-                  href={`mailto:${metadata.email}`}
+                  href={`mailto:${portfolioPage.metadata.email}`}
                   className="bg-blue-600 hover:bg-blue-700 text-white px-6 py-3 rounded-full font-medium transition-colors text-sm text-center mt-4"
                 >
                   Download CV
