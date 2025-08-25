@@ -10,9 +10,14 @@ interface NavigationProps {
 export default function Navigation({ portfolioPage }: NavigationProps) {
   const [isMenuOpen, setIsMenuOpen] = useState(false)
   const [activeSection, setActiveSection] = useState('home')
+  const [isScrolled, setIsScrolled] = useState(false)
 
   useEffect(() => {
     const handleScroll = () => {
+      // Update scroll state for navbar styling
+      setIsScrolled(window.scrollY > 50)
+
+      // Update active section
       const sections = ['home', 'about', 'experience', 'education', 'certifications', 'testimonials', 'contact']
       const scrollPosition = window.scrollY + 100
 
@@ -43,23 +48,31 @@ export default function Navigation({ portfolioPage }: NavigationProps) {
   const navItems = [
     { id: 'home', label: 'Home' },
     { id: 'about', label: 'About' },
-    { id: 'experience', label: 'Experience' },
-    { id: 'education', label: 'Education' },
-    { id: 'certifications', label: 'Certifications' },
-    { id: 'testimonials', label: 'Testimonials' },
+    { id: 'experience', label: 'Portfolio' },
+    { id: 'education', label: 'Service' },
+    { id: 'testimonials', label: 'Blog' },
     { id: 'contact', label: 'Contact' },
   ]
 
   return (
-    <nav className="fixed top-0 left-0 right-0 bg-white/90 backdrop-blur-sm border-b border-gray-100 z-50">
-      <div className="container-max section-padding">
-        <div className="flex items-center justify-between h-16">
+    <nav className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
+      isScrolled 
+        ? 'bg-white/95 backdrop-blur-sm shadow-lg' 
+        : 'bg-transparent'
+    }`}>
+      <div className="max-w-7xl mx-auto px-6 sm:px-8 lg:px-12">
+        <div className="flex items-center justify-between h-20">
           {/* Logo/Name */}
           <button
             onClick={() => scrollToSection('home')}
-            className="text-xl font-bold text-gray-900 hover:text-accent-600 transition-colors"
+            className="flex items-center space-x-2"
           >
-            {portfolioPage.metadata?.full_name || 'Portfolio'}
+            <div className="w-10 h-10 bg-blue-600 rounded-lg flex items-center justify-center">
+              <span className="text-white font-bold text-lg">G</span>
+            </div>
+            <span className="text-xl font-bold text-gray-900">
+              {portfolioPage.metadata?.full_name || 'GraphixPro'}
+            </span>
           </button>
 
           {/* Desktop Navigation */}
@@ -68,21 +81,36 @@ export default function Navigation({ portfolioPage }: NavigationProps) {
               <button
                 key={item.id}
                 onClick={() => scrollToSection(item.id)}
-                className={`text-sm font-medium transition-colors ${
+                className={`text-sm font-medium transition-colors relative ${
                   activeSection === item.id
-                    ? 'text-accent-600'
-                    : 'text-gray-600 hover:text-gray-900'
+                    ? 'text-blue-600'
+                    : 'text-gray-700 hover:text-blue-600'
                 }`}
               >
                 {item.label}
+                {activeSection === item.id && (
+                  <div className="absolute -bottom-1 left-0 right-0 h-0.5 bg-blue-600 rounded-full"></div>
+                )}
               </button>
             ))}
+          </div>
+
+          {/* Download CV Button */}
+          <div className="hidden md:flex items-center">
+            {metadata?.email && (
+              <a
+                href={`mailto:${metadata.email}`}
+                className="bg-blue-600 hover:bg-blue-700 text-white px-6 py-3 rounded-full font-medium transition-colors text-sm"
+              >
+                Download CV
+              </a>
+            )}
           </div>
 
           {/* Mobile Menu Button */}
           <button
             onClick={() => setIsMenuOpen(!isMenuOpen)}
-            className="md:hidden p-2 text-gray-600 hover:text-gray-900 transition-colors"
+            className="md:hidden p-2 text-gray-700 hover:text-blue-600 transition-colors"
             aria-label="Toggle menu"
           >
             <svg
@@ -113,13 +141,21 @@ export default function Navigation({ portfolioPage }: NavigationProps) {
                   onClick={() => scrollToSection(item.id)}
                   className={`text-left text-sm font-medium transition-colors ${
                     activeSection === item.id
-                      ? 'text-accent-600'
-                      : 'text-gray-600 hover:text-gray-900'
+                      ? 'text-blue-600'
+                      : 'text-gray-700 hover:text-blue-600'
                   }`}
                 >
                   {item.label}
                 </button>
               ))}
+              {metadata?.email && (
+                <a
+                  href={`mailto:${metadata.email}`}
+                  className="bg-blue-600 hover:bg-blue-700 text-white px-6 py-3 rounded-full font-medium transition-colors text-sm text-center mt-4"
+                >
+                  Download CV
+                </a>
+              )}
             </div>
           </div>
         )}
