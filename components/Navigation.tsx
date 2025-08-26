@@ -62,20 +62,7 @@ export default function Navigation({ portfolioPage }: NavigationProps) {
     }`}>
       <div className="max-w-7xl mx-auto px-6 sm:px-8 lg:px-12">
         <div className="flex items-center justify-between h-20">
-          {/* Logo/Name */}
-          <button
-            onClick={() => scrollToSection('home')}
-            className="flex items-center space-x-2"
-          >
-            <div className="w-10 h-10 bg-blue-600 rounded-lg flex items-center justify-center">
-              <span className="text-white font-bold text-lg">G</span>
-            </div>
-            <span className="text-xl font-bold text-gray-900">
-              {portfolioPage.metadata?.full_name || 'GraphixPro'}
-            </span>
-          </button>
-
-          {/* Desktop Navigation */}
+          {/* Desktop Navigation - now positioned to the left */}
           <div className="hidden md:flex items-center space-x-8">
             {navItems.map((item) => (
               <button
