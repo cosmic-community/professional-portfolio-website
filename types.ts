@@ -90,6 +90,36 @@ interface Testimonial extends CosmicObject {
   };
 }
 
+// Blog Category interface
+interface BlogCategory extends CosmicObject {
+  type: 'blog-categories';
+  metadata: {
+    name?: string;
+    description?: string;
+    color?: string;
+  };
+}
+
+// Blog Post interface
+interface BlogPost extends CosmicObject {
+  type: 'blog-posts';
+  metadata: {
+    title?: string;
+    content?: string;
+    excerpt?: string;
+    featured_image?: {
+      url: string;
+      imgix_url: string;
+    };
+    category?: BlogCategory;
+    author_name?: string;
+    reading_time?: string;
+    published_date?: string;
+    seo_title?: string;
+    seo_description?: string;
+  };
+}
+
 // API response types
 interface CosmicResponse<T> {
   objects: T[];
@@ -107,6 +137,8 @@ export type {
   Education,
   Certification,
   Testimonial,
+  BlogCategory,
+  BlogPost,
   CosmicResponse,
   CosmicSingleResponse
 };
