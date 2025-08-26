@@ -53,8 +53,8 @@ export default function Navigation({ portfolioPage }: NavigationProps) {
                   href={item.href}
                   className={`px-3 py-2 text-sm font-medium transition-colors relative ${
                     index === 0 
-                      ? `${isScrolled ? 'text-blue-600' : 'text-blue-400'} border-b-2 ${isScrolled ? 'border-blue-600' : 'border-blue-400'}` 
-                      : `${isScrolled ? 'text-gray-700 hover:text-blue-600' : 'text-white hover:text-blue-300'}`
+                      ? 'text-blue-600 border-b-2 border-blue-600' 
+                      : 'text-black hover:text-blue-600'
                   }`}
                 >
                   {item.name}
@@ -74,11 +74,7 @@ export default function Navigation({ portfolioPage }: NavigationProps) {
           <div className="md:hidden">
             <button
               onClick={() => setIsMenuOpen(!isMenuOpen)}
-              className={`inline-flex items-center justify-center p-2 rounded-md transition-colors focus:outline-none focus:ring-2 focus:ring-inset focus:ring-blue-500 ${
-                isScrolled 
-                  ? 'text-gray-400 hover:text-gray-500 hover:bg-gray-100' 
-                  : 'text-white hover:text-gray-200 hover:bg-white/10'
-              }`}
+              className="inline-flex items-center justify-center p-2 rounded-md transition-colors focus:outline-none focus:ring-2 focus:ring-inset focus:ring-blue-500 text-black hover:text-gray-600 hover:bg-gray-100"
               aria-expanded="false"
             >
               <span className="sr-only">Open main menu</span>
@@ -107,7 +103,7 @@ export default function Navigation({ portfolioPage }: NavigationProps) {
                 className={`block px-3 py-2 rounded-md text-base font-medium transition-colors ${
                   index === 0
                     ? 'text-blue-600 bg-blue-50'
-                    : 'text-gray-700 hover:text-blue-600 hover:bg-gray-50'
+                    : 'text-black hover:text-blue-600 hover:bg-gray-50'
                 }`}
                 onClick={() => setIsMenuOpen(false)}
               >
