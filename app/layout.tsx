@@ -29,6 +29,12 @@ export default function RootLayout({
       <head>
         {/* Console capture script for dashboard debugging */}
         <script src="/dashboard-console-capture.js"></script>
+        {/* Changed: Added Cosmic Insights tracking script */}
+        <script
+          defer
+          src="https://insights.cosmicinsights.dev/script.js"
+          data-project="68acab10f01fd26965584647"
+        ></script>
       </head>
       <body className={inter.className}>
         {children}

@@ -76,6 +76,12 @@ export default async function BlogPostPage({ params }: BlogPostPageProps) {
     <div className="min-h-screen bg-white">
       <Navigation portfolioPage={portfolioPage} />
       
+      {/* Changed: Added Cosmic Insights object context meta tag for blog post tracking */}
+      <meta
+        name="cosmic-context"
+        content={JSON.stringify({ object_id: post.id, object_type: "blog-posts" })}
+      />
+
       <main className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
         {/* Back to Blog */}
         <div className="mb-8">

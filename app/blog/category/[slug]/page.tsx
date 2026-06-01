@@ -65,6 +65,12 @@ export default async function CategoryPage({ params }: CategoryPageProps) {
     <div className="min-h-screen bg-white">
       <Navigation portfolioPage={portfolioPage} />
       
+      {/* Changed: Added Cosmic Insights object context meta tag for category tracking */}
+      <meta
+        name="cosmic-context"
+        content={JSON.stringify({ object_id: category.id, object_type: "blog-categories" })}
+      />
+
       <main className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
         {/* Back to Blog */}
         <div className="mb-8">
