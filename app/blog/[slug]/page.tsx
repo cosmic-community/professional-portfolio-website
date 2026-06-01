@@ -3,6 +3,7 @@ import { getBlogPost, getBlogPosts } from '@/lib/cosmic'
 import { getPortfolioPage } from '@/lib/cosmic'
 import Navigation from '@/components/Navigation'
 import BlogPostContent from '@/components/BlogPostContent'
+import CosmicContext from '@/components/CosmicContext'
 import Link from 'next/link'
 import { notFound } from 'next/navigation'
 import type { Metadata } from 'next'
@@ -74,6 +75,9 @@ export default async function BlogPostPage({ params }: BlogPostPageProps) {
 
   return (
     <div className="min-h-screen bg-white">
+      {/* Cosmic Insights object tracking */}
+      <CosmicContext objectId={post.id} objectType="blog-posts" />
+
       <Navigation portfolioPage={portfolioPage} />
       
       <main className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 py-12">

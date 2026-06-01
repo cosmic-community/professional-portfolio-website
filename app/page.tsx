@@ -7,6 +7,7 @@ import CertificationsSection from '@/components/CertificationsSection'
 import TestimonialsSection from '@/components/TestimonialsSection'
 import ContactSection from '@/components/ContactSection'
 import Navigation from '@/components/Navigation'
+import CosmicContext from '@/components/CosmicContext'
 import type { Metadata } from 'next'
 
 export async function generateMetadata(): Promise<Metadata> {
@@ -53,6 +54,9 @@ export default async function HomePage() {
 
   return (
     <div className="min-h-screen bg-white">
+      {/* Cosmic Insights object tracking */}
+      <CosmicContext objectId={portfolioPage.id} objectType="portfolio-page" />
+
       <Navigation portfolioPage={portfolioPage} />
       
       <main>
